@@ -78,6 +78,31 @@ function App() {
                 className="block p-2.5 w-full text-sm text-gray-100 bg-gray-900 rounded-lg border border-gray-800"
                 placeholder="Write your thoughts here..."
               ></textarea>
+
+              <div className="grid grid-cols-2 gap-2">
+                <div className="w-20 h-20 relative border-4 border-white rounded-full overflow-hidden">
+                  <img
+                    className="object-cover object-center h-20"
+                    src="https://xsgames.co/randomusers/avatar.php?g=male"
+                    alt="Developer profile"
+                  />
+                </div>
+              </div>
+
+              <div className="rouded-lg">
+                <label
+                  for="message"
+                  className="block mb-2 text-sm font-medium text-gray-100 "
+                >
+                  Leave your feedback
+                </label>
+                <textarea
+                  id="message"
+                  rows="4"
+                  className="block p-2.5 w-full text-sm text-gray-100 bg-gray-900 rounded-lg border border-gray-800"
+                  placeholder="Write your thoughts here..."
+                ></textarea>
+              </div>
             </div>
           </div>
         </div>
