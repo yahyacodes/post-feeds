@@ -1,0 +1,32 @@
+{
+  "post_feeds": [
+    {
+      "id": 1,
+      "username": "Noah Brown",
+      "user_role": "Forntend Developer",
+      "post_time": "4 minutes ago",
+      "post": "I'm a dynamic and detail-oriented Frontend Developer with 2 years of experience in creating and implementing innovative web designs and user experiences."
+    },
+    {
+      "id": 2,
+      "username": "Noah Brown",
+      "user_role": "Forntend Developer",
+      "post_time": "10 hours ago",
+      "post": "Just chilling on a lazy Sunday afternoon. What's everyone up to? 😊"
+    },
+    {
+      "id": 3,
+      "username": "Noah Brown",
+      "user_role": "Forntend Developer",
+      "post_time": "22 hours ago",
+      "post": "Movie night at home with all the snacks! 🎬🍿 Recommend any good films?"
+    },
+    {
+      "id": 4,
+      "username": "Noah Brown",
+      "userr_ole": "Forntend Developer",
+      "post_time": "a day ago",
+      "post": "Geeking out over the latest tech release. Can't wait to get my hands on it! 🤓🔥"
+    }
+  ]
+}
