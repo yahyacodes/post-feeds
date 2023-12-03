@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import FeedCard from "./Components/Profile";
+import Profile from "./Components/Profile";
 import FeedContent from "./Components/FeedContent";
 import Feedback from "./Components/Feedback";
 import Navbar from "./Components/Navbar";
 import SideCard from "./Components/SideCard";
-import Post from "./Components/Post";
+import PostList from "./Components/PostList";
 
 function App() {
   const [data, setData] = useState([]);
@@ -15,6 +15,26 @@ function App() {
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
+
+  const addPost = (newPost) => {
+    const updatedPosts = [...data, newPost];
+    setData(updatedPosts);
+  };
+
+  const deletePost = (id) => {
+    const updatedPosts = data.filter((post) => post.id !== id);
+    setData(updatedPosts);
+  };
+
+  const updatePost = (id, like) => {
+    const updatedPosts = data.map((post) => {
+      if (post.id === id) {
+        return [...post, like];
+      } else {
+        return post;
+      }
+    });
+  };
 
   return (
     <>
@@ -26,12 +46,16 @@ function App() {
           </div>
 
           <div className="flex-none w-9/12 text-white mx-auto lg:mt-0 bg-gray-900 rounded-lg p-8">
-            <FeedCard />
+            <Profile />
             <FeedContent />
             <div className="border-gray-800 border-t mt-10 mb-10"></div>
-            <Feedback />
+            <Feedback onAddPost={addPost} />
 
-            <Post posts={data} />
+            <PostList
+              posts={data}
+              onDeletePost={deletePost}
+              onUpdatePost={updatePost}
+            />
           </div>
         </div>
       </div>

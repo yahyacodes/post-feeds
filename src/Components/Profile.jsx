@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const FeedCard = () => {
+const Profile = () => {
   const [show, setShow] = useState(false);
 
   const handleChangeColor = (event) => {
@@ -36,8 +36,6 @@ const FeedCard = () => {
             onChange={handleChangeColor}
           >
             <option value="Acitve">Active</option>
-            <option value="Do not disturp">Do not disturp</option>
-            <option value="Away">Set as a way</option>
           </select>
         </div>
       </div>
@@ -45,4 +43,4 @@ const FeedCard = () => {
   );
 };
 
-export default FeedCard;
+export default Profile;
