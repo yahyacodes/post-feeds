@@ -6,6 +6,8 @@ const Feedback = ({ onAddPost }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const postObj = {
+      username: "Noah Brown",
+      post_time: "1 minute ago",
       post: post,
     };
 
