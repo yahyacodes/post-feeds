@@ -24,7 +24,7 @@ const Feedback = ({ onAddPost }) => {
   };
 
   return (
-    <div className="text-left mx-14">
+    <div className="text-left md:mx-14">
       <form onSubmit={handleSubmit}>
         <label
           htmlFor="message"

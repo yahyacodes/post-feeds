@@ -40,12 +40,12 @@ function App() {
     <>
       <Navbar />
       <div className="card-elements mb-4">
-        <div className="max-w-screen-xl mx-auto px-4 flex-wrap justify-between md:flex md:px-8 lg:flex-nowrap mt-6">
-          <div className="flex-none w-64 h-5/6">
+        <div className="flex flex-wrap mt-6">
+          <div className="w-full sm:w-1/1 md:w-1/1 lg:w-3/12 xl:w-3/12 p-4">
             <SideCard />
           </div>
 
-          <div className="flex-none w-9/12 text-white mx-auto lg:mt-0 bg-gray-900 rounded-lg p-8">
+          <div className="w-full sm:w-1/1 md:w-1/1 mx-auto lg:w-8/12 xl:w-8/12 p-4 bg-gray-900 mt-4 rounded-lg">
             <Profile />
             <FeedContent />
             <div className="border-gray-800 border-t mt-10 mb-10"></div>

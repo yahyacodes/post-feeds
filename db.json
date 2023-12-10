@@ -5,40 +5,28 @@
       "username": "Noah Brown",
       "post_time": "4 minutes ago",
       "post": "I'm a dynamic and detail-oriented Frontend Developer with 2 years of experience in creating and implementing innovative web designs and user experiences.",
-      "like": false
+      "like": true
     },
     {
       "id": 2,
       "username": "Noah Brown",
       "post_time": "10 hours ago",
       "post": "Just chilling on a lazy Sunday afternoon. What's everyone up to? 😊",
-      "like": false
+      "like": true
     },
     {
       "id": 3,
       "username": "Noah Brown",
       "post_time": "22 hours ago",
       "post": "Movie night at home with all the snacks! 🎬🍿 Recommend any good films?",
-      "like": false
+      "like": true
     },
     {
       "id": 4,
       "username": "Noah Brown",
       "post_time": "a day ago",
       "post": "Geeking out over the latest tech release. Can't wait to get my hands on it! 🤓🔥",
-      "like": false
-    },
-    {
-      "username": "Noah Brown",
-      "post_time": "1 minute ago",
-      "post": "Thinking of how....",
-      "id": 5
-    },
-    {
-      "username": "Noah Brown",
-      "post_time": "1 minute ago",
-      "post": "Not possible for today",
-      "id": 8
+      "like": true
     }
   ]
 }
