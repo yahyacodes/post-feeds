@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { BiSolidLike } from "react-icons/bi";
 
-const Post = ({ feed, onDeletePost, onUpdatePost }) => {
+const Post = ({ feed, onDeletePost }) => {
   const [iconColor, setIconColor] = useState("text-gray-100");
   const { id } = feed;
 
@@ -25,9 +25,8 @@ const Post = ({ feed, onDeletePost, onUpdatePost }) => {
       .then((res) => res.json())
       .then((data) => console.log(data));
 
-    setIconColor(
-      iconColor === "text-gray-100" ? "text-green-500" : "text-gray-100"
-    );
+    if (iconColor && iconColor === "text-gray-100")
+      setIconColor("text-green-500");
   };
 
   return (
