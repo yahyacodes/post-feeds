@@ -1,31 +1,36 @@
 import React, { useState } from "react";
+import { db } from "../firebase-config";
+import { collection, addDoc } from "firebase/firestore";
 
-const Feedback = ({ onAddPost }) => {
-  const [post, setPost] = useState("");
+const Feedback = () => {
+  const [post, setPost] = useState([]);
+  const postCollectionRef = collection(db, "post_feeds");
 
-  const handleSubmit = (e) => {
+  const addPost = async (e) => {
     e.preventDefault();
-    const postObj = {
+    await addDoc(postCollectionRef, {
       username: "Noah Brown",
       post_time: "1 minute ago",
       post: post,
-    };
+      like: false,
+    });
 
-    fetch("http://localhost:3000/post_feeds", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    let newData = [
+      ...post,
+      {
+        username: "Noah Brown",
+        post_time: "1 minute ago",
+        post: post,
+        like: false,
       },
-      body: JSON.stringify(postObj),
-    })
-      .then((res) => res.json())
-      .then((data) => onAddPost(data));
-    setPost();
+    ];
+    setPost(newData);
+    console.log(newData);
   };
 
   return (
     <div className="text-left md:mx-14">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={addPost}>
         <label
           htmlFor="message"
           className="block mb-2 text-sm font-medium text-gray-100 "
@@ -37,7 +42,7 @@ const Feedback = ({ onAddPost }) => {
           rows="4"
           className="block p-2.5 w-full text-sm text-gray-100 bg-gray-900 rounded-lg border border-gray-800"
           placeholder="Write your thoughts here..."
-          value={post}
+          // value={post}
           onChange={(e) => setPost(e.target.value)}
         ></textarea>
         <button

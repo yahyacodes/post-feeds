@@ -5,36 +5,36 @@ import FeedContent from "./Components/FeedContent";
 import Feedback from "./Components/Feedback";
 import Navbar from "./Components/Navbar";
 import SideCard from "./Components/SideCard";
-import PostList from "./Components/PostList";
+import Post from "./Components/Post";
 
 function App() {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:3000/post_feeds")
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/post_feeds")
+  //     .then((res) => res.json())
+  //     .then((data) => setData(data));
+  // }, []);
 
-  const addPost = (newPost) => {
-    const updatedPosts = [...data, newPost];
-    setData(updatedPosts);
-  };
+  // const addPost = (newPost) => {
+  //   const updatedPosts = [...data, newPost];
+  //   setData(updatedPosts);
+  // };
 
-  const deletePost = (id) => {
-    const updatedPosts = data.filter((post) => post.id !== id);
-    setData(updatedPosts);
-  };
+  // const deletePost = (id) => {
+  //   const updatedPosts = data.filter((post) => post.id !== id);
+  //   setData(updatedPosts);
+  // };
 
-  const updatePost = (id, like) => {
-    const updatedPosts = data.map((post) => {
-      if (post.id === id) {
-        return [...post, like];
-      } else {
-        return post;
-      }
-    });
-  };
+  // const updatePost = (id, like) => {
+  //   const updatedPosts = data.map((post) => {
+  //     if (post.id === id) {
+  //       return [...post, like];
+  //     } else {
+  //       return post;
+  //     }
+  //   });
+  // };
 
   return (
     <>
@@ -49,13 +49,9 @@ function App() {
             <Profile />
             <FeedContent />
             <div className="border-gray-800 border-t mt-10 mb-10"></div>
-            <Feedback onAddPost={addPost} />
+            <Feedback />
 
-            <PostList
-              posts={data}
-              onDeletePost={deletePost}
-              onUpdatePost={updatePost}
-            />
+            <Post />
           </div>
         </div>
       </div>
