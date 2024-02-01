@@ -49,8 +49,6 @@ function App() {
             <Profile />
             <FeedContent />
             <div className="border-gray-800 border-t mt-10 mb-10"></div>
-            <Feedback />
-
             <Post />
           </div>
         </div>

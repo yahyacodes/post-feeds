@@ -1,20 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { BiSolidLike } from "react-icons/bi";
+import Modal from "./Modal";
 import { db } from "../firebase-config";
 import {
   collection,
   getDocs,
   deleteDoc,
   doc,
-  updateDoc,
+  addDoc,
 } from "firebase/firestore";
 
 const Post = () => {
   const [data, setData] = useState([]);
-  const [changeColor, setChangeColor] = useState();
-
+  const [post, setPost] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   const postCollectionRef = collection(db, "post_feeds");
+
+  const addPost = async (e) => {
+    await addDoc(postCollectionRef, {
+      username: "Noah Brown",
+      post_time: "1 minute ago",
+      post: post,
+      like: false,
+    });
+
+    let newData = [
+      ...data,
+      {
+        username: "Noah Brown",
+        post_time: "1 minute ago",
+        post: post,
+        like: false,
+      },
+    ];
+    setData(newData);
+    console.log(newData);
+  };
 
   useEffect(() => {
     const getPosts = async () => {
@@ -32,8 +54,20 @@ const Post = () => {
     setData(remaining);
   };
 
+  const handleFormReload = (e) => {
+    e.preventDefault();
+    setShowModal(false);
+  };
+
   return (
     <>
+      <button
+        className="text-right py-1.5 px-10 whitespace-nowrap flex items-center 
+              gap-x-0 font-medium text-gray-100 bg-blue-400 rounded-md cursor-pointer"
+        onClick={() => setShowModal(true)}
+      >
+        Create Post
+      </button>
       <ul>
         {data.map((post) => (
           <li key={post.id}>
@@ -76,6 +110,32 @@ const Post = () => {
           </li>
         ))}
       </ul>
+
+      <Modal isVisible={showModal} onClose={() => setShowModal(false)}>
+        <div className="bg-gray-900 rounded-xl p-8">
+          <form className="space-y-6" onSubmit={handleFormReload}>
+            <label
+              htmlFor="message"
+              className="block mb-2 text-sm font-medium text-gray-100 "
+            >
+              Leave your feedback
+            </label>
+            <textarea
+              id="post"
+              rows="4"
+              className="block p-2.5 w-full text-sm text-gray-100 bg-gray-900 rounded-lg border border-gray-800"
+              placeholder="Write your thoughts here..."
+              onChange={(e) => setPost(e.target.value)}
+            ></textarea>
+            <button
+              onClick={addPost}
+              className="text-white bg-blue-400 font-medium w-full rounded-lg text-sm px-5 py-2 me-2 mt-2"
+            >
+              Post
+            </button>
+          </form>
+        </div>
+      </Modal>
     </>
   );
 };
